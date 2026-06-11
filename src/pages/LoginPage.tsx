@@ -2,23 +2,27 @@ function LoginPage() {
 
   return (
 
-    <div>
+    <main>
 
       <h1>Login</h1>
+        
+        <form action="">
 
-        <div>
-            <label htmlFor="email">Email</label>  
-            <input  id="email" type="email" placeholder="Email" />
-        </div> 
+            <div>
+                <label htmlFor="email">Email</label>  
+                <input  id="email" type="email" placeholder="Email" />
+            </div> 
 
-        <div>
-            <label htmlFor="password">Password</label>   
-            <input id="password" type="password" placeholder="Password" />
-        </div>  
+            <div>
+                <label htmlFor="password">Password</label>   
+                <input id="password" type="password" placeholder="Password" />
+            </div>  
 
-      <button>Login</button>
+            <button type="submit">Login</button>
 
-    </div>
+        </form>
+
+    </main>
 
   )
 
