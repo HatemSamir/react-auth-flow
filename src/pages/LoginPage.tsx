@@ -8,9 +8,11 @@ function LoginPage() {
             <h2 className="mt-0 mb-0 text-2xl bold">Welcome back</h2>
             <span className="text-sm mb-10">Please enter your details</span>
 
+
+            {/* login form */}
             <form>  
 
-
+                {/* email input */}
                 <div className="mb-3">
                     <label className="text-lg block hidden" htmlFor="email">Email</label>  
                     <div className="relative rounded-md shadow-xs">
@@ -27,7 +29,7 @@ function LoginPage() {
                         name="email" 
                         id="email" 
                         className="block w-full rounded-md border-0 py-2 pl-10 pr-3 text-white ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" 
-                        placeholder="Enter your email"
+                        placeholder="Email"
                         />
                     </div>
                 </div>
@@ -36,7 +38,8 @@ function LoginPage() {
                     <label className="text-lg block" htmlFor="email">Email</label>  
                     <input  className="text-lg border-solid border-1 rounded-sm" id="email" type="email" placeholder="Email" autoComplete="email" />
                 </div>  */}
-
+                
+                {/* password input */}
                 <div className="mb-3">
                     <label className="text-lg block hidden" htmlFor="password">Password</label>   
                     <div className="relative rounded-md shadow-xs">
@@ -46,7 +49,9 @@ function LoginPage() {
                             </svg>
 
                         </div>
-                    <input className="block w-full rounded-md border-0 py-2 pl-10 pr-3 text-white ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" id="password" type="password" placeholder="Password" />
+                    <input 
+                    className="block w-full rounded-md border-0 py-2 pl-10 pr-3 text-white ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" id="password" type="password" placeholder="Password" 
+                    />
                     </div>
                 </div>  
 
