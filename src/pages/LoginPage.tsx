@@ -1,4 +1,22 @@
+import { useState } from "react";
+import loginUser from "../services/auth";
+import { useNavigate } from "react-router-dom";
+
 function LoginPage() {
+
+    const navigate = useNavigate();
+    const [error, setError] = useState("");
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    
+    function handleLogin(event: React.FormEvent<HTMLFormElement>) {
+        event.preventDefault();
+        try {
+            loginUser(email, password, navigate);
+        } catch (error) {
+            setError("Invalid email or password");
+        }
+    }
 
   return (
 
@@ -10,7 +28,7 @@ function LoginPage() {
 
 
             {/* login form */}
-            <form>  
+            <form onSubmit={handleLogin}>  
 
                 {/* email input */}
                 <div className="mb-3">
@@ -28,6 +46,8 @@ function LoginPage() {
                         type="email" 
                         name="email" 
                         id="email" 
+                        value={email} 
+                        onChange={(e) => setEmail(e.target.value)}
                         className="block w-full rounded-md border-0 py-2 pl-10 pr-3 text-white ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" 
                         placeholder="Email"
                         />
@@ -50,7 +70,12 @@ function LoginPage() {
 
                         </div>
                     <input 
-                    className="block w-full rounded-md border-0 py-2 pl-10 pr-3 text-white ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" id="password" type="password" placeholder="Password" 
+                    id="password"  
+                    placeholder="Password" 
+                    type="password"
+                    value={password} 
+                    onChange={(e) => setPassword(e.target.value)}
+                    className="block w-full rounded-md border-0 py-2 pl-10 pr-3 text-white ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" 
                     />
                     </div>
                 </div>  
@@ -58,6 +83,8 @@ function LoginPage() {
                 <button className="bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800 text-white font-semibold py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 w-full mt-5 cursor-pointer" type="submit">Login</button>
 
             </form>
+
+            {error && <p>{error}</p>}
         </div>
 
     </main>
